@@ -1,0 +1,19 @@
+<html><head>
+  <meta name="viewport" content="width=device-width">
+  <title>Car - Planck.js</title>
+</head><body>
+<script src="https://cdn.jsdelivr.net/npm/planck-js@0.2/dist/planck-with-testbed.js"></script>
+<script>
+planck.testbed('Confined', function(testbed) {
+  var pl = planck, Vec2 = pl.Vec2;
+  var world = new pl.World();
+  var ground = world.createBody();
+  var groundLength = 50;
+
+  // Floor
+  ground.createFixture(pl.Edge(Vec2(- groundLength, 0), Vec2(groundLength, 0)), 0);
+  return world;
+});
+
+</script>
+</body></html>

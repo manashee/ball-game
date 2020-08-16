@@ -1,0 +1,35 @@
+<html><head>
+  <meta name="viewport" content="width=device-width">
+  <title>Car - Planck.js</title>
+</head><body>
+<script src="https://cdn.jsdelivr.net/npm/planck-js@0.2/dist/planck-with-testbed.js"></script>
+<script>
+planck.testbed('HeavyOnLight', function(testbed) {
+  var pl = planck, Vec2 = pl.Vec2;
+  var width = height = 30;
+  var world = new pl.World(Vec2(0, -20));
+
+  world.createBody().createFixture(pl.Edge(Vec2(- width/1.5, height*0.95), Vec2( width/5, height*0.90)));
+  world.createBody().createFixture(pl.Edge(Vec2(- width/5.0, height*0.80), Vec2( width , height*0.85)));
+  world.createBody().createFixture(pl.Edge(Vec2(- width * 2 , height*0.5), Vec2( 0 , height*0.4)));
+  world.createBody().createFixture(pl.Edge(Vec2(- width/5.0, height*0.20), Vec2( width * 2  , height*0.35)));
+//  world.createBody().createFixture(pl.Edge(Vec2(- width/2, - height*0.20), Vec2( 0  , -height*0.20)));
+
+  var hs = [ 0.25, 1.0, 4.0, 0.0, 0.0, -1.0, -2.0, -2.0, -1.25, 0.0 ];
+  var x = - width/2, y1 = - height*0.20, dx = 1.0;
+
+  for (var i = 0; i < 10; ++i) {
+    var y2 = hs[i];
+    world.createBody().createFixture(pl.Edge(Vec2(x, y1), Vec2(x + dx, y2)));
+    y1 = y2;
+    x += dx;
+  }
+
+ 
+  world.createDynamicBody(Vec2(0.0, height)).createFixture(pl.Circle(1.0), 10.0);
+
+  return world;
+});
+
+</script>
+</body></html>

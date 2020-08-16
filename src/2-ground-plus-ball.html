@@ -1,0 +1,30 @@
+<html><head>
+  <meta name="viewport" content="width=device-width">
+  <title>Car - Planck.js</title>
+</head><body>
+<script src="https://cdn.jsdelivr.net/npm/planck-js@0.2/dist/planck-with-testbed.js"></script>
+<script>
+planck.testbed('Confined', function(testbed) {
+  var pl = planck, Vec2 = pl.Vec2;
+  var world = new pl.World();
+  var ground = world.createBody();
+  var groundWidth = 50;
+  var width = 8.00, groundHeight = 4.00;
+  var POCKET_R = 2;
+  
+  // Floor
+  ground.createFixture(pl.Edge(Vec2(- groundWidth/2, 0), Vec2(groundWidth/2, 0)), 0);
+
+
+  // ball 
+  var pocketFixDef = {
+    userData: 'pocket'
+  };
+  
+  world.createBody().createFixture(pl.Circle(Vec2(0,  groundHeight - POCKET_R ), POCKET_R), pocketFixDef);
+
+  return world;
+});
+
+</script>
+</body></html>
