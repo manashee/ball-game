@@ -1,0 +1,78 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width">
+  <title>Car - Planck.js</title>
+</head>
+
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/planck-js@0.2/dist/planck-with-testbed.js"></script>
+  <script>
+
+    planck.testbed('HeavyOnLight', function (testbed) {
+      var pl = planck, Vec2 = pl.Vec2;
+      var width = height = 30;
+      var world = new pl.World(Vec2(0, -20));
+
+      world.createBody().createFixture(pl.Edge(Vec2(- width / 1.5, height * 0.95), Vec2(width / 5, height * 0.90)));
+      world.createBody().createFixture(pl.Edge(Vec2(- width / 5.0, height * 0.80), Vec2(width, height * 0.85)));
+      world.createBody().createFixture(pl.Edge(Vec2(- width * 2, height * 0.5), Vec2(0, height * 0.4)));
+      world.createBody().createFixture(pl.Edge(Vec2(- width / 5.0, height * 0.20), Vec2(width * 2, height * 0.35)));
+      //  world.createBody().createFixture(pl.Edge(Vec2(- width/2, - height*0.20), Vec2( 0  , -height*0.20)));
+
+      var hs = [0.1, -10.0, -10.0, -10.0, -10.0, -10.0, -10.0, -10.0, -10.0, 0.0];
+      var x = - width / 2, y1 = - height * 0.20, dx = 1.0;
+
+      for (var i = 0; i < 10; ++i) {
+        var y2 = hs[i];
+        world.createBody().createFixture(pl.Edge(Vec2(x, y1), Vec2(x + dx, y2)));
+        y1 = y2;
+        x += dx;
+      }
+
+
+      var balls = [];
+      var numberOfBalls = 50
+
+      /*
+      {fill: '#ffdd00', stroke: '#000000'},
+          {fill: '#ffdd00', stroke: '#ffffff'},
+          {fill: '#ff3300', stroke: '#000000'},
+          {fill: '#ff3300', stroke: '#ffffff'},
+          {fill: '#662200', stroke: '#000000'},
+          {fill: '#662200', stroke: '#ffffff'},
+          {fill: '#ff8800', stroke: '#000000'},
+          {fill: '#ff8800', stroke: '#ffffff'},
+          {fill: '#00bb11', stroke: '#000000'},
+          {fill: '#00bb11', stroke: '#ffffff'},
+          {fill: '#9900ff', stroke: '#000000'},
+          {fill: '#9900ff', stroke: '#ffffff'},
+          {fill: '#0077ff', stroke: '#000000'},
+          {fill: '#0077ff', stroke: '#ffffff'}
+          */
+
+      for (var i = 0; i < numberOfBalls; i++) {
+        balls.push(world.createDynamicBody(Vec2(0.0, height)).createFixture(pl.Circle(1.2), 10.0));
+        if (i % 3 == 0)
+          balls[i].render = { fill: '#ffdd00', stroke: '#000000' }
+        else if (i % 5 == 0)
+          balls[i].render = { fill: '#ff3300', stroke: '#ffffff' }
+        else if (i % 7 == 0)
+          balls[i].render = { fill: '#662200', stroke: '#000000' }
+        else if (i % 11 == 0)
+          balls[i].render = { fill: '#ff8800', stroke: '#ffffff' }
+        else if (i % 13 == 0)
+          balls[i].render = { fill: '#00bb11', stroke: '#000000' }
+        else if (i % 17 == 0)
+          balls[i].render = { fill: '#9900ff', stroke: '#ffffff' }
+        else 
+          balls[i].render = { fill: '#0077ff', stroke: '#000000' }
+      }
+
+      return world;
+    });
+
+  </script>
+</body>
+
+</html> 
