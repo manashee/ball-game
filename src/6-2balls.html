@@ -28,7 +28,8 @@ planck.testbed('HeavyOnLight', function(testbed) {
 
  
   world.createDynamicBody(Vec2(0.0, height)).createFixture(pl.Circle(1.0), 10.0);
-  
+  world.createDynamicBody(Vec2(-3.0, height)).createFixture(pl.Circle(1.0), 10.0);
+
   return world;
 });
 

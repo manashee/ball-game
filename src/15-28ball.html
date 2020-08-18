@@ -1,0 +1,117 @@
+<html><head>
+  <meta name="viewport" content="width=device-width">
+  <title>Car - Planck.js</title>
+</head><body>
+<script src="https://cdn.jsdelivr.net/npm/planck-js@0.2/dist/planck-with-testbed.js"></script>
+<script>
+  
+planck.testbed('HeavyOnLight', function(testbed) {
+  var pl = planck, Vec2 = pl.Vec2;
+  var width = height = 30;
+  var world = new pl.World(Vec2(0, -20));
+
+  world.createBody().createFixture(pl.Edge(Vec2(- width/1.5, height*0.95), Vec2( width/5, height*0.90)));
+  world.createBody().createFixture(pl.Edge(Vec2(- width/5.0, height*0.80), Vec2( width , height*0.85)));
+  world.createBody().createFixture(pl.Edge(Vec2(- width * 2 , height*0.5), Vec2( 0 , height*0.4)));
+  world.createBody().createFixture(pl.Edge(Vec2(- width/5.0, height*0.20), Vec2( width * 2  , height*0.35)));
+//  world.createBody().createFixture(pl.Edge(Vec2(- width/2, - height*0.20), Vec2( 0  , -height*0.20)));
+
+  var hs = [0.1, -10.0, -10.0, -10.0, -10.0, -10.0, -10.0, -10.0, -10.0, 0.0 ];
+  var x = - width/2, y1 = - height*0.20, dx = 1.0;
+
+  for (var i = 0; i < 10; ++i) {
+    var y2 = hs[i];
+    world.createBody().createFixture(pl.Edge(Vec2(x, y1), Vec2(x + dx, y2)));
+    y1 = y2;
+    x += dx;
+  }
+
+ 
+  var ball1 = world.createDynamicBody(Vec2(0.0, height)).createFixture(pl.Circle(1.2), 10.0);
+  ball1.render = {fill: '#ffdd00', stroke: '#000000'}
+
+  var ball2 = world.createDynamicBody(Vec2(-3.0, height)).createFixture(pl.Circle(1.2), 10.0);
+  ball2.render =  {fill: '#ff3300', stroke: '#000000'}
+
+  var ball3 = world.createDynamicBody(Vec2(-6.0, height)).createFixture(pl.Circle(1.2), 10.0);
+  ball3.render = {fill: '#662200', stroke: '#000000'}
+
+  var ball4 = world.createDynamicBody(Vec2(-9.0, height)).createFixture(pl.Circle(1.2), 10.0);
+  ball4.render = {fill: '#ff8800', stroke: '#000000'}
+
+   var ball5=world.createDynamicBody(Vec2(-12.0, height)).createFixture(pl.Circle(1.2), 10.0);
+   ball5.render= {fill: '#00bb11', stroke: '#000000'}
+
+   var ball6=world.createDynamicBody(Vec2(-15.0, height)).createFixture(pl.Circle(1.2), 10.0);
+   ball6.render=  {fill: '#9900ff', stroke: '#000000'}
+
+var ball7=world.createDynamicBody(Vec2(-18.0, height)).createFixture(pl.Circle(1.2), 10.0);
+   ball7.render=   {fill: '#0077ff', stroke: '#000000'} 
+
+var ball8 = world.createDynamicBody(Vec2(-10.0, height)).createFixture(pl.Circle(1.2), 10.0);
+  ball8.render = {fill: '#ffdd00', stroke: '#000000'}
+
+  var ball10 = world.createDynamicBody(Vec2(-30.0, height)).createFixture(pl.Circle(1.2), 10.0);
+  ball10.render =  {fill: '#ff3300', stroke: '#000000'}
+
+  var ball11 = world.createDynamicBody(Vec2(-20.0, height)).createFixture(pl.Circle(1.2), 10.0);
+  ball11.render = {fill: '#662200', stroke: '#000000'}
+
+  var ball12 = world.createDynamicBody(Vec2(-10.0, height)).createFixture(pl.Circle(1.2), 10.0);
+  ball12.render = {fill: '#ff8800', stroke: '#000000'}
+
+   var ball13=world.createDynamicBody(Vec2(-14.0, height)).createFixture(pl.Circle(1.2), 10.0);
+   ball13.render= {fill: '#00bb11', stroke: '#000000'}
+
+   var ball14=world.createDynamicBody(Vec2(-19.0, height)).createFixture(pl.Circle(1.2), 10.0);
+   ball14.render=  {fill: '#9900ff', stroke: '#000000'}
+
+var ball15=world.createDynamicBody(Vec2(-50.0, height)).createFixture(pl.Circle(1.2), 10.0);
+   ball15.render=   {fill: '#0077ff', stroke: '#000000'}
+
+var ball1 = world.createDynamicBody(Vec2(0.0, height)).createFixture(pl.Circle(1.2), 10.0);
+  ball1.render = {fill: '#ffdd00', stroke: '#000000'}
+
+  var ball2 = world.createDynamicBody(Vec2(-3.0, height)).createFixture(pl.Circle(1.2), 10.0);
+  ball2.render =  {fill: '#ff3300', stroke: '#000000'}
+
+  var ball3 = world.createDynamicBody(Vec2(-6.0, height)).createFixture(pl.Circle(1.2), 10.0);
+  ball3.render = {fill: '#662200', stroke: '#000000'}
+
+  var ball4 = world.createDynamicBody(Vec2(-9.0, height)).createFixture(pl.Circle(1.2), 10.0);
+  ball4.render = {fill: '#ff8800', stroke: '#000000'}
+
+   var ball5=world.createDynamicBody(Vec2(-12.0, height)).createFixture(pl.Circle(1.2), 10.0);
+   ball5.render= {fill: '#00bb11', stroke: '#000000'}
+
+   var ball6=world.createDynamicBody(Vec2(-15.0, height)).createFixture(pl.Circle(1.2), 10.0);
+   ball6.render=  {fill: '#9900ff', stroke: '#000000'}
+
+var ball7=world.createDynamicBody(Vec2(-18.0, height)).createFixture(pl.Circle(1.2), 10.0);
+   ball7.render=   {fill: '#0077ff', stroke: '#000000'} 
+
+var ball8 = world.createDynamicBody(Vec2(-10.0, height)).createFixture(pl.Circle(1.2), 10.0);
+  ball8.render = {fill: '#ffdd00', stroke: '#000000'}
+
+  var ball10 = world.createDynamicBody(Vec2(-30.0, height)).createFixture(pl.Circle(1.2), 10.0);
+  ball10.render =  {fill: '#ff3300', stroke: '#000000'}
+
+  var ball11 = world.createDynamicBody(Vec2(-20.0, height)).createFixture(pl.Circle(1.2), 10.0);
+  ball11.render = {fill: '#662200', stroke: '#000000'}
+
+  var ball12 = world.createDynamicBody(Vec2(-10.0, height)).createFixture(pl.Circle(1.2), 10.0);
+  ball12.render = {fill: '#ff8800', stroke: '#000000'}
+
+   var ball13=world.createDynamicBody(Vec2(-14.0, height)).createFixture(pl.Circle(1.2), 10.0);
+   ball13.render= {fill: '#00bb11', stroke: '#000000'}
+
+   var ball14=world.createDynamicBody(Vec2(-19.0, height)).createFixture(pl.Circle(1.2), 10.0);
+   ball14.render=  {fill: '#9900ff', stroke: '#000000'}
+
+var ball15=world.createDynamicBody(Vec2(-50.0, height)).createFixture(pl.Circle(1.2), 10.0);
+   ball15.render=   {fill: '#0077ff', stroke: '#000000'}
+  return world;
+});
+
+</script>
+</body></html>  -f

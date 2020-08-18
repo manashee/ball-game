@@ -27,8 +27,18 @@ planck.testbed('HeavyOnLight', function(testbed) {
   }
 
  
-  world.createDynamicBody(Vec2(0.0, height)).createFixture(pl.Circle(1.0), 10.0);
-  
+  var ball1 = world.createDynamicBody(Vec2(0.0, height)).createFixture(pl.Circle(0.5), 10.0);
+  ball1.render = {fill: '#ffdd00', stroke: '#000000'}
+
+  var ball2 = world.createDynamicBody(Vec2(-3.0, height)).createFixture(pl.Circle(0.6), 10.0);
+  ball2.render =  {fill: '#ff3300', stroke: '#000000'}
+
+  var ball3 = world.createDynamicBody(Vec2(-6.0, height)).createFixture(pl.Circle(0.7), 10.0);
+  ball3.render = {fill: '#662200', stroke: '#000000'}
+
+  var ball4 = world.createDynamicBody(Vec2(-9.0, height)).createFixture(pl.Circle(0.8), 10.0);
+  ball4.render = {fill: '#ff8800', stroke: '#000000'}
+
   return world;
 });
 
